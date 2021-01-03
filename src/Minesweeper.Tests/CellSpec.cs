@@ -1,4 +1,5 @@
 using System;
+using AutoFixture.Xunit2;
 using FluentAssertions;
 using Xunit;
 
@@ -6,12 +7,9 @@ namespace Minesweeper.Tests
 {
     public class CellSpec
     {
-        [Fact]
-        public void SetBomb()
+        [Theory, AutoData]
+        public void SetBomb(Cell sut)
         {
-            // Arrange
-            var sut = new Cell();
-
             // Act
             sut.Click();
             sut.SetBomb();
@@ -20,12 +18,9 @@ namespace Minesweeper.Tests
             sut.ToString().Should().Be("*");
         }
 
-        [Fact]
-        public void NearBombsCount()
+        [Theory, AutoData]
+        public void NearBombsCount(Cell sut)
         {
-            // Arrange
-            var sut = new Cell();
-
             // Act
             sut.Click();
             sut.NearBombsCount = 3;
@@ -34,14 +29,9 @@ namespace Minesweeper.Tests
             sut.ToString().Should().Be("3");
         }
 
-        [Fact]
-        public void Covered()
+        [Theory, AutoData]
+        public void Covered(Cell sut)
         {
-            // Arrange
-            var sut = new Cell();
-
-            // Act
-
             // Assert
             sut.ToString().Should().Be(".");
         }

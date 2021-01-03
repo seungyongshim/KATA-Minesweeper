@@ -11,14 +11,18 @@ namespace Minesweeper
             Width = width;
             Height = height;
             BombCount = bombCount;
-            Cells = Enumerable.Range(0, Width * Height)
-                              .Select(x => new Cell())
-                              .ToArray();
+            Cells = (from x in Enumerable.Range(0, Width)
+                     from y in Enumerable.Range(0, Height)
+                     orderby ToIndex(x, y)
+                     select new Cell(x, y)).ToArray();
         }
 
         public int Width { get; }
+
         public int Height { get; }
+
         public int BombCount { get; }
+
         public Cell[] Cells { get; }
 
         public void SetBombs()
@@ -31,14 +35,15 @@ namespace Minesweeper
                              .ForEach(x => x.SetBomb());
         }
 
-        private IEnumerable<int> IndexGenerator(Random rand)
-        {
-            while (true)
-                yield return rand.Next(Width * Height);
-        }
-
         public void SetNearBombsCounts()
         {
+            foreach (var bomb in Cells.Where(x => x.IsBomb))
+            {
+                foreach (var item in GetNearCells(bomb))
+                {
+                    item.NearBombsCount++;
+                }
+            }
         }
 
         public IEnumerable<Cell> GetNearCells(int x, int y)
@@ -49,15 +54,21 @@ namespace Minesweeper
                    select c;
         }
 
+        private int ToIndex(int x, int y) => x + (y * Width);
+        private IEnumerable<int> IndexGenerator(Random rand)
+        {
+            while (true)
+                yield return rand.Next(Width * Height);
+        }
+        private IEnumerable<Cell> GetNearCells(Cell bomb) => GetNearCells(bomb.X, bomb.Y);
         private Cell GetCell((int X, int Y) pos) => pos switch
         {
             (var x, _) when x < 0 => null,
             (var x, _) when x >= Width => null,
             (_, var y) when y < 0 => null,
             (_, var y) when y >= Height => null,
-            (var x, var y) => Cells[x + (y * Width)],
+            (var x, var y) => Cells[ToIndex(x, y)],
         };
-
 
         private IEnumerable<(int, int)> NearIndexGenerator(int x, int y)
         {

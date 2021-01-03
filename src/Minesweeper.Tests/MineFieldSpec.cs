@@ -44,21 +44,20 @@ namespace Minesweeper.Tests
         public void SetNearBombsCounts()
         {
             // Arrange
-            var sut = new MineField(4, 4);
+            var sut = new MineField(2, 3);
 
             // Act
             sut.Cells[1].SetBomb();
             sut.SetNearBombsCounts();
 
-            // 1 * 1 0
-            // 1 1 1 0
-            // 0 0 0 0 
-            // 0 0 0 0
+            // 1 * 
+            // 1 1 
+            // 0 0  
             // Assert
 
             sut.Cells.Select(x => x.NearBombsCount)
                      .Should()
-                     .BeEquivalentTo(new[] { 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+                     .BeEquivalentTo(new[] { 1, 0, 1, 1, 0, 0 });
         }
 
         [Fact]
