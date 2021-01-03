@@ -48,7 +48,6 @@ namespace Minesweeper.Tests
 
             // Act
             sut.Cells[1].SetBomb();
-            sut.SetNearBombsCounts();
 
             // 1 * 
             // 1 1 
@@ -84,7 +83,6 @@ namespace Minesweeper.Tests
             // Arrange
             var sut = new MineField(3, 3);
             sut.Cells[0].SetBomb();
-            sut.SetNearBombsCounts();
 
             // Act
             sut.Click(2, 2);

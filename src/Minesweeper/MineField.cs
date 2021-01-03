@@ -14,7 +14,7 @@ namespace Minesweeper
             Cells = (from x in Enumerable.Range(0, Width)
                      from y in Enumerable.Range(0, Height)
                      orderby ToIndex(x, y)
-                     select new Cell(x, y)).ToArray();
+                     select new Cell(x, y, GetNearCells(x, y))).ToArray();
         }
 
         public int Width { get; }
@@ -52,12 +52,15 @@ namespace Minesweeper
         }
 
         private int ToIndex(int x, int y) => x + (y * Width);
+
         private IEnumerable<int> IndexGenerator(Random rand)
         {
             while (true)
                 yield return rand.Next(Width * Height);
         }
+
         private IEnumerable<Cell> GetNearCells(Cell bomb) => GetNearCells(bomb.X, bomb.Y);
+
         private Cell GetCell((int X, int Y) pos) => pos switch
         {
             (var x, _) when x < 0 => null,
@@ -67,18 +70,7 @@ namespace Minesweeper
             (var x, var y) => Cells[ToIndex(x, y)],
         };
 
-        public void Click(int x, int y)
-        {
-            var curr = Cells[ToIndex(x, y)];
-
-            if (!curr.IsCovered) return;
-
-            curr.Click();
-
-            if (curr.NearBombsCount != 0) return;
-
-            GetNearCells(curr).ForEach(x => Click(x.X, x.Y));
-        }
+        public void Click(int x, int y) => Cells[ToIndex(x, y)].Click();
 
         private IEnumerable<(int, int)> NearIndexGenerator(int x, int y)
         {
