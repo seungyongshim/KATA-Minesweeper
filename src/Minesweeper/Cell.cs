@@ -16,7 +16,7 @@ namespace Minesweeper
                 return "*";
             }
 
-            return null;
+            return NearBombsCount.ToString();
         }
     }
 }
