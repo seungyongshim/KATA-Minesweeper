@@ -16,5 +16,10 @@ namespace Minesweeper
         {
             Cell.CoverState = new Uncovered(Cell);
         }
+
+        internal void RightClick()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
