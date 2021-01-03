@@ -35,6 +35,11 @@ jobs:
       run: |
         cd src
         dotnet test --logger "junit;LogFileName=Report.xml"
+    - name: ReportGenerator
+      uses: danielpalme/ReportGenerator-GitHub-Action@4.8.4
+      with:
+        reports: 'coverage.xml' # REQUIRED # The coverage reports that should be parsed (separated by semicolon). Globbing is supported.
+        targetdir: 'coveragereport' # REQUIRED # The directory where the generated report should be saved.
     - name: Publish Unit Test Results
       uses: docker://ghcr.io/enricomi/publish-unit-test-result-action:v1.6
       if: always()
