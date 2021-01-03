@@ -18,11 +18,8 @@ namespace Minesweeper
             CoverState = new Covered(this);
         }
 
-
-
         public bool IsBomb { get; private set; }
         public int NearBombsCount { get; set; }
-        public bool IsCovered { get; private set; } = true;
         public int X { get; }
         public int Y { get; }
         public IEnumerable<Cell> NearCells { get; }
@@ -37,20 +34,21 @@ namespace Minesweeper
 
         public void Click()
         {
-            if (!IsCovered) return;
+            CoverState.Click();
+        }
 
-            IsCovered = false;
-
+        internal void ClickNearCells()
+        {
             if (NearBombsCount != 0) return;
 
             NearCells.ForEach(x => x.Click());
         }
 
-        public override string ToString() => (IsCovered, IsBomb, NearBombsCount) switch
+        public override string ToString() => (CoverState.ToString(), IsBomb, NearBombsCount) switch
         {
-            (true, _, _) => ".",
-            (false, true, _) => "*",
-            (false, false, var c) => c.ToString()
+            (null, true, _) => "*",
+            (null, false, var c) => c.ToString(),
+            (var c, _, _) => c.ToString(),
         };
     }
 }

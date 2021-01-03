@@ -10,6 +10,6 @@ namespace Minesweeper
 
         public override void RightClick() => Cell.CoverState = this;
 
-
+        public override string ToString() => null;
     }
 }
