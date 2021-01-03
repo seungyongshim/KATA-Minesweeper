@@ -36,5 +36,10 @@ namespace Minesweeper
             while (true)
                 yield return rand.Next(Width * Height);
         }
+
+        public void SetNearBombsCounts()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
