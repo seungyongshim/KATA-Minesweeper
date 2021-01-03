@@ -77,5 +77,23 @@ namespace Minesweeper.Tests
                  sut.Cells[5],
                });
         }
+
+        [Fact]
+        public void Click()
+        {
+            // Arrange
+            var sut = new MineField(3, 3);
+            sut.Cells[0].SetBomb();
+
+            // Act
+            sut.Click(2, 2);
+
+            // * 1 0
+            // 1 1 0
+            // 0 0 0
+
+            // Assert
+            sut.ToString().Should().Be("*10110000");
+        }
     }
 }

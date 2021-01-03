@@ -67,6 +67,11 @@ namespace Minesweeper
             (var x, var y) => Cells[ToIndex(x, y)],
         };
 
+        public void Click(int v1, int v2)
+        {
+            throw new NotImplementedException();
+        }
+
         private IEnumerable<(int, int)> NearIndexGenerator(int x, int y)
         {
             yield return (x - 1, y - 1);
