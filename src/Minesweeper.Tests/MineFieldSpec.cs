@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoFixture.Xunit2;
 using FluentAssertions;
 using Xunit;
@@ -33,9 +30,6 @@ namespace Minesweeper.Tests
             // Arrange
             var sut = new MineField(4, 4, bombCount);
 
-            // Act
-            sut.SetBombs();
-
             // Assert
             sut.Cells.Where(x => x.IsBomb).Count().Should().Be(bombCount);
         }
@@ -44,11 +38,8 @@ namespace Minesweeper.Tests
         public void SetBombsWithoutRandomize()
         {
             // Arrange
-            var indices = new [] { 1, 3, 8 };
+            var indices = new[] { 1, 3, 8 };
             var sut = new MineField(4, 4, indices);
-
-            // Act
-            sut.SetBombs();
 
             // Assert
             (from i in indices
@@ -62,11 +53,10 @@ namespace Minesweeper.Tests
         {
             // Arrange
             var sut = new MineField(2, 3, new[] { 1 });
-            sut.SetBombs();
 
-            // 1 * 
-            // 1 1 
-            // 0 0  
+            // 1 *
+            // 1 1
+            // 0 0
             // Assert
 
             sut.Cells.Select(x => x.NearBombsCount)
@@ -96,10 +86,9 @@ namespace Minesweeper.Tests
         public void Click()
         {
             // Arrange
-            var sut = new MineField(3, 3, new []{ 0 });
+            var sut = new MineField(3, 3, new[] { 0 });
 
             // Act
-            sut.SetBombs();
             sut.Click(2, 2);
 
             // . 1 0

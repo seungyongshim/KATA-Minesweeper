@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -16,35 +15,19 @@ namespace Minesweeper
         {
             Width = width;
             Height = height;
-            BombIndices = bombIndices;
 
             Cells = (from x in Enumerable.Range(0, Width)
                      from y in Enumerable.Range(0, Height)
                      orderby ToIndex(x, y)
-                     select new Cell(x, y, GetNearCells(x, y))).ToArray();
-        }
+                     select new Cell(GetNearCells(x, y))).ToArray();
 
-        public int Width { get; }
-
-        public int Height { get; }
-        public IEnumerable<int> BombIndices { get; }
-        public Cell[] Cells { get; }
-
-        public void SetBombs()
-        {
-            var rand = new Random();
-
-            (from i in BombIndices
+            (from i in bombIndices
              select Cells[i]).ForEach(x => x.SetBomb());
         }
 
-        public void SetNearBombsCounts()
-        {
-            (from c in Cells
-             where c.IsBomb
-             from n in GetNearCells(c)
-             select n).ForEach(x => x.NearBombsCount++);
-        }
+        public int Width { get; }
+        public int Height { get; }
+        public Cell[] Cells { get; }
 
         public IEnumerable<Cell> GetNearCells(int x, int y)
         {
@@ -63,21 +46,8 @@ namespace Minesweeper
             while (true)
                 yield return RandomNumberGenerator.GetInt32(0, max);
         }
-        private int ToIndex(int x, int y) => x + (y * Width);
 
-        
-
-        private IEnumerable<Cell> GetNearCells(Cell bomb) => GetNearCells(bomb.X, bomb.Y);
-
-        private Cell GetCell((int X, int Y) pos) => pos switch
-        {
-            (var x, _) when x < 0 => null,
-            (var x, _) when x >= Width => null,
-            (_, var y) when y < 0 => null,
-            (_, var y) when y >= Height => null,
-            (var x, var y) => Cells[ToIndex(x, y)],
-        };
-        private IEnumerable<(int, int)> NearIndexGenerator(int x, int y)
+        private static IEnumerable<(int, int)> NearIndexGenerator(int x, int y)
         {
             yield return (x - 1, y - 1);
             yield return (x, y - 1);
@@ -88,5 +58,16 @@ namespace Minesweeper
             yield return (x, y + 1);
             yield return (x + 1, y + 1);
         }
+
+        private int ToIndex(int x, int y) => x + (y * Width);
+
+        private Cell GetCell((int X, int Y) pos) => pos switch
+        {
+            (var x, _) when x < 0 => null,
+            (var x, _) when x >= Width => null,
+            (_, var y) when y < 0 => null,
+            (_, var y) when y >= Height => null,
+            (var x, var y) => Cells[ToIndex(x, y)],
+        };
     }
 }
