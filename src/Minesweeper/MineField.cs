@@ -37,13 +37,10 @@ namespace Minesweeper
 
         public void SetNearBombsCounts()
         {
-            foreach (var bomb in Cells.Where(x => x.IsBomb))
-            {
-                foreach (var item in GetNearCells(bomb))
-                {
-                    item.NearBombsCount++;
-                }
-            }
+            (from c in Cells
+             where c.IsBomb
+             from n in GetNearCells(c)
+             select n).ForEach(x => x.NearBombsCount++);
         }
 
         public IEnumerable<Cell> GetNearCells(int x, int y)
