@@ -35,5 +35,15 @@ namespace Minesweeper.Tests
             // Assert
             sut.ToString().Should().Be(".");
         }
+
+        [Theory, AutoData]
+        public void RightClick(Cell sut)
+        {
+            // Act
+            sut.RightClick();
+
+            // Assert
+            sut.ToString().Should().Be("A");
+        }
     }
 }
