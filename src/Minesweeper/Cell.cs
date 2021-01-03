@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -9,7 +8,10 @@ namespace Minesweeper
 {
     public class Cell
     {
-        public Cell(int x, int y) : this(x, y, Enumerable.Empty<Cell>()) { }
+        public Cell(int x, int y) : this(x, y, Enumerable.Empty<Cell>())
+        {
+        }
+
         public Cell(int x, int y, IEnumerable<Cell> nearCells)
         {
             X = x;
@@ -33,15 +35,9 @@ namespace Minesweeper
             NearCells.ForEach(x => x.NearBombsCount++);
         }
 
-        public void RightClick()
-        {
-            throw new NotImplementedException();
-        }
+        public void RightClick() => CoverState.RightClick();
 
-        public void Click()
-        {
-            CoverState.Click();
-        }
+        public void Click() => CoverState.Click();
 
         internal void ClickNearCells()
         {
