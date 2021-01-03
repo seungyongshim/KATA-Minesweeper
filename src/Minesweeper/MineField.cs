@@ -39,7 +39,12 @@ namespace Minesweeper
 
         public void SetNearBombsCounts()
         {
-            throw new NotImplementedException();
+            
+        }
+
+        public IEnumerable<Cell> GetNearCells(int x, int y)
+        {
+            return null;
         }
     }
 }

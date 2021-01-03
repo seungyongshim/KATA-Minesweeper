@@ -60,5 +60,23 @@ namespace Minesweeper.Tests
                      .Should()
                      .BeEquivalentTo(new[] { 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
         }
+
+        [Fact]
+        public void GetNearCells()
+        {
+            // Arrange
+            var sut = new MineField(4, 4);
+
+            // Act
+            var ret = sut.GetNearCells(0, 0);
+
+            // Assert
+            ret.Should()
+               .BeEquivalentTo(new[]
+               { sut.Cells[1],
+                 sut.Cells[4],
+                 sut.Cells[5],
+               });
+        }
     }
 }
