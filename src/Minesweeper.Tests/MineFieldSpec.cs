@@ -19,5 +19,18 @@ namespace Minesweeper.Tests
             // Assert
             sut.Cells.Length.Should().Be(4 * 4);
         }
+
+        [Fact]
+        public void SetBombs()
+        {
+            // Arrange
+            var sut = new MineField(4, 4, 3);
+
+            // Act
+            sut.SetBombs();
+
+            // Assert
+            sut.Cells.Where(x => x.IsBomb).Count().Should().Be(3);
+        }
     }
 }
