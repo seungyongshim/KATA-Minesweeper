@@ -12,7 +12,8 @@ namespace Minesweeper
         {
         }
 
-        public override void Click() => throw new NotImplementedException();
-        public override void RightClick() => throw new NotImplementedException();
+        public override void Click() => Cell.CoverState = this;
+        public override void RightClick() => Cell.CoverState = new Covered(Cell);
+        public override string ToString() => "A";
     }
 }
