@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Minesweeper.Tests")]
 
 namespace Minesweeper
 {
@@ -11,7 +14,11 @@ namespace Minesweeper
             X = x;
             Y = y;
             NearCells = nearCells;
+
+            CoverState = new Covered(this);
         }
+
+
 
         public bool IsBomb { get; private set; }
         public int NearBombsCount { get; set; }
@@ -19,6 +26,7 @@ namespace Minesweeper
         public int X { get; }
         public int Y { get; }
         public IEnumerable<Cell> NearCells { get; }
+        internal Covered CoverState { get; private set; }
 
         public void SetBomb()
         {
