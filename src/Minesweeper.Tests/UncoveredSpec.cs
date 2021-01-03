@@ -20,5 +20,15 @@ namespace Minesweeper.Tests
             // Assert
             cell.CoverState.Should().BeOfType<Uncovered>();
         }
+
+        [Theory, AutoData]
+        public void RightClick([Frozen] Cell cell, Uncovered sut)
+        {
+            // Act
+            sut.RightClick();
+
+            // Assert
+            cell.CoverState.Should().BeOfType<Uncovered>();
+        }
     }
 }

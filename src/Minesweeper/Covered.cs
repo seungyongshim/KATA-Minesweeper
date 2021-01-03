@@ -6,9 +6,9 @@ namespace Minesweeper
         {
         }
 
-        public void Click() => Cell.CoverState = new Uncovered(Cell);
+        public override void Click() => Cell.CoverState = new Uncovered(Cell);
 
-        public void RightClick() => Cell.CoverState = new Flaged(Cell);
+        public override void RightClick() => Cell.CoverState = new Flaged(Cell);
 
         public override string ToString() => ".";
     }

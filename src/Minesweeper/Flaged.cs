@@ -11,5 +11,8 @@ namespace Minesweeper
         public Flaged(Cell cell) : base(cell)
         {
         }
+
+        public override void Click() => throw new NotImplementedException();
+        public override void RightClick() => throw new NotImplementedException();
     }
 }
