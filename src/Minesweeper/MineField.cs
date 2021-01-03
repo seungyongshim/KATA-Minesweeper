@@ -67,9 +67,17 @@ namespace Minesweeper
             (var x, var y) => Cells[ToIndex(x, y)],
         };
 
-        public void Click(int v1, int v2)
+        public void Click(int x, int y)
         {
-            throw new NotImplementedException();
+            var curr = Cells[ToIndex(x, y)];
+
+            if (!curr.IsCovered) return;
+
+            curr.Click();
+
+            if (curr.NearBombsCount != 0) return;
+
+            GetNearCells(curr).ForEach(x => Click(x.X, x.Y));
         }
 
         private IEnumerable<(int, int)> NearIndexGenerator(int x, int y)
@@ -83,5 +91,7 @@ namespace Minesweeper
             yield return (x, y + 1);
             yield return (x + 1, y + 1);
         }
+
+        public override string ToString() => string.Join<Cell>(string.Empty, Cells);
     }
 }

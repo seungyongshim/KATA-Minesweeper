@@ -84,6 +84,7 @@ namespace Minesweeper.Tests
             // Arrange
             var sut = new MineField(3, 3);
             sut.Cells[0].SetBomb();
+            sut.SetNearBombsCounts();
 
             // Act
             sut.Click(2, 2);
@@ -93,7 +94,7 @@ namespace Minesweeper.Tests
             // 0 0 0
 
             // Assert
-            sut.ToString().Should().Be("*10110000");
+            sut.ToString().Should().Be(".10110000");
         }
     }
 }
