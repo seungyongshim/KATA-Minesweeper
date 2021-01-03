@@ -39,12 +39,36 @@ namespace Minesweeper
 
         public void SetNearBombsCounts()
         {
-            
         }
 
         public IEnumerable<Cell> GetNearCells(int x, int y)
         {
-            return null;
+            return from i in NearIndexGenerator(x, y)
+                   let c = GetCell(i)
+                   where c is not null
+                   select c;
+        }
+
+        private Cell GetCell((int X, int Y) pos) => pos switch
+        {
+            (var x, _) when x < 0 => null,
+            (var x, _) when x >= Width => null,
+            (_, var y) when y < 0 => null,
+            (_, var y) when y >= Height => null,
+            (var x, var y) => Cells[x + (y * Width)],
+        };
+
+
+        private IEnumerable<(int, int)> NearIndexGenerator(int x, int y)
+        {
+            yield return (x - 1, y - 1);
+            yield return (x, y - 1);
+            yield return (x + 1, y - 1);
+            yield return (x - 1, y);
+            yield return (x + 1, y);
+            yield return (x - 1, y + 1);
+            yield return (x, y + 1);
+            yield return (x + 1, y + 1);
         }
     }
 }
