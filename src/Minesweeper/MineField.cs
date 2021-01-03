@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Minesweeper
 {
@@ -27,16 +25,16 @@ namespace Minesweeper
         {
             var rand = new Random();
 
-            for (int i = 0; i < BombCount; i++)
-            {
-                var curr = Cells[rand.Next(0, Width * Height)];
+            (from i in IndexGenerator(rand)
+             select Cells[i]).Distinct()
+                             .Take(BombCount)
+                             .ForEach(x => x.SetBomb());
+        }
 
-                if (curr.IsBomb)
-                {
-                    i--;
-                }
-                else curr.SetBomb();
-            }
+        private IEnumerable<int> IndexGenerator(Random rand)
+        {
+            while (true)
+                yield return rand.Next(Width * Height);
         }
     }
 }
