@@ -26,7 +26,7 @@ namespace Minesweeper
         public int X { get; }
         public int Y { get; }
         public IEnumerable<Cell> NearCells { get; }
-        internal Covered CoverState { get; private set; }
+        internal AbstractCoverState CoverState { get; set; }
 
         public void SetBomb()
         {

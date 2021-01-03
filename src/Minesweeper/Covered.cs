@@ -14,7 +14,7 @@ namespace Minesweeper
 
         public void Click()
         {
-            
+            Cell.CoverState = new Uncovered(Cell);
         }
     }
 }
