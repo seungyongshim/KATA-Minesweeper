@@ -11,5 +11,10 @@ namespace Minesweeper
         public Uncovered(Cell cell) : base(cell)
         {
         }
+
+        internal void Click()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
