@@ -12,9 +12,9 @@ namespace Minesweeper
         {
         }
 
-        internal void Click()
+        public void Click()
         {
-            throw new NotImplementedException();
+            Cell.CoverState = this;
         }
     }
 }
