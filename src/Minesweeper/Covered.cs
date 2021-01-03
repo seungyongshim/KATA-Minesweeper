@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Minesweeper
 {
     public class Covered : AbstractCoverState
@@ -12,14 +6,10 @@ namespace Minesweeper
         {
         }
 
-        public void Click()
-        {
-            Cell.CoverState = new Uncovered(Cell);
-        }
+        public void Click() => Cell.CoverState = new Uncovered(Cell);
 
-        internal void RightClick()
-        {
-            throw new NotImplementedException();
-        }
+        public void RightClick() => Cell.CoverState = new Flaged(Cell);
+
+
     }
 }
