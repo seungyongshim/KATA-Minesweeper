@@ -1,16 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace Minesweeper
 {
     public class MineField
     {
         public MineField(int width, int height, int bombCount = 0)
+            : this(width, height, IndexGenerator(width * height).Distinct().Take(bombCount))
+        {
+        }
+
+        public MineField(int width, int height, IEnumerable<int> bombIndices)
         {
             Width = width;
             Height = height;
-            BombCount = bombCount;
+            BombIndices = bombIndices;
+
             Cells = (from x in Enumerable.Range(0, Width)
                      from y in Enumerable.Range(0, Height)
                      orderby ToIndex(x, y)
@@ -20,19 +27,15 @@ namespace Minesweeper
         public int Width { get; }
 
         public int Height { get; }
-
-        public int BombCount { get; }
-
+        public IEnumerable<int> BombIndices { get; }
         public Cell[] Cells { get; }
 
         public void SetBombs()
         {
             var rand = new Random();
 
-            (from i in IndexGenerator(rand)
-             select Cells[i]).Distinct()
-                             .Take(BombCount)
-                             .ForEach(x => x.SetBomb());
+            (from i in BombIndices
+             select Cells[i]).ForEach(x => x.SetBomb());
         }
 
         public void SetNearBombsCounts()
@@ -51,13 +54,18 @@ namespace Minesweeper
                    select c;
         }
 
-        private int ToIndex(int x, int y) => x + (y * Width);
+        public void Click(int x, int y) => Cells[ToIndex(x, y)].Click();
 
-        private IEnumerable<int> IndexGenerator(Random rand)
+        public override string ToString() => string.Join<Cell>(string.Empty, Cells);
+
+        private static IEnumerable<int> IndexGenerator(int max)
         {
             while (true)
-                yield return rand.Next(Width * Height);
+                yield return RandomNumberGenerator.GetInt32(0, max);
         }
+        private int ToIndex(int x, int y) => x + (y * Width);
+
+        
 
         private IEnumerable<Cell> GetNearCells(Cell bomb) => GetNearCells(bomb.X, bomb.Y);
 
@@ -69,9 +77,6 @@ namespace Minesweeper
             (_, var y) when y >= Height => null,
             (var x, var y) => Cells[ToIndex(x, y)],
         };
-
-        public void Click(int x, int y) => Cells[ToIndex(x, y)].Click();
-
         private IEnumerable<(int, int)> NearIndexGenerator(int x, int y)
         {
             yield return (x - 1, y - 1);
@@ -83,7 +88,5 @@ namespace Minesweeper
             yield return (x, y + 1);
             yield return (x + 1, y + 1);
         }
-
-        public override string ToString() => string.Join<Cell>(string.Empty, Cells);
     }
 }

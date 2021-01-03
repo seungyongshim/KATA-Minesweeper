@@ -41,13 +41,28 @@ namespace Minesweeper.Tests
         }
 
         [Fact]
+        public void SetBombsWithoutRandomize()
+        {
+            // Arrange
+            var indices = new [] { 1, 3, 8 };
+            var sut = new MineField(4, 4, indices);
+
+            // Act
+            sut.SetBombs();
+
+            // Assert
+            (from i in indices
+             let c = sut.Cells[i].IsBomb
+             where c is not true
+             select c).Should().BeEmpty();
+        }
+
+        [Fact]
         public void SetNearBombsCounts()
         {
             // Arrange
-            var sut = new MineField(2, 3);
-
-            // Act
-            sut.Cells[1].SetBomb();
+            var sut = new MineField(2, 3, new[] { 1 });
+            sut.SetBombs();
 
             // 1 * 
             // 1 1 
@@ -81,13 +96,13 @@ namespace Minesweeper.Tests
         public void Click()
         {
             // Arrange
-            var sut = new MineField(3, 3);
-            sut.Cells[0].SetBomb();
+            var sut = new MineField(3, 3, new []{ 0 });
 
             // Act
+            sut.SetBombs();
             sut.Click(2, 2);
 
-            // * 1 0
+            // . 1 0
             // 1 1 0
             // 0 0 0
 

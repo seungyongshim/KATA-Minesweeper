@@ -30,7 +30,7 @@ namespace Minesweeper.Tests
             cell.CoverState.Should().BeOfType<Covered>();
         }
         [Theory, AutoData]
-        public void ReturnToString([Frozen] Cell cell, Flaged sut)
+        public void ReturnToString(Flaged sut)
         {
             // Assert
             sut.ToString().Should().Be("A");
