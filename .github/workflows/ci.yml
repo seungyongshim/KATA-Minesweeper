@@ -16,10 +16,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.101
-    - name: Install dependencies
-      run: |
-        cd src
-        dotnet restore
     - name: Add Nuget
       run: |
         cd src
@@ -28,6 +24,10 @@ jobs:
           dotnet add "$proj" package JunitXml.TestLogger || true
           dotnet add "$proj" package altcover || true
         done
+    - name: Install dependencies
+      run: |
+        cd src
+        dotnet restore
     - name: Build
       run: |
         cd src
