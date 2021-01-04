@@ -26,7 +26,7 @@ jobs:
     - name: Test
       run: |
         cd src
-        dotnet clean restore
+        dotnet clean 
         dotnet restore
         dotnet test --logger "junit;LogFileName=Report.xml"
     - name: Add Nuget
@@ -39,7 +39,7 @@ jobs:
     - name: Test
       run: |
         cd src
-        dotnet clean restore
+        dotnet clean 
         dotnet restore
         dotnet test /p:AltCover=true /p:AltCoverXmlreport="../altcover.xml"
     - name: ReportGenerator
