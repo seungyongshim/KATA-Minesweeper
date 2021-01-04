@@ -34,6 +34,7 @@ jobs:
         cd src
         for proj in $(dotnet sln list)        
         do
+          dotnet remove "$proj" package JunitXml.TestLogger || true
           dotnet add "$proj" package altcover || true
         done        
     - name: Test
