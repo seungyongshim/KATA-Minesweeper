@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage line-rate="1" branch-rate="0.8181818181818182" lines-covered="90" lines-valid="90" branches-covered="18" branches-valid="22" complexity="58" version="0" timestamp="1610063147">
+  <sources />
+  <packages>
+    <package name="Minesweeper" line-rate="1" branch-rate="0.8181818181818182" complexity="58">
+      <classes>
+        <class name="Minesweeper.AbstractCoverState" filename="/home/runner/work/KATA-Minesweeper/KATA-Minesweeper/src/Minesweeper/AbstractCoverState.cs" line-rate="1" branch-rate="1" complexity="NaN">
+          <methods>
+            <method name=".ctor" signature="(Minesweeper.Cell)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines>
+                <line number="7" hits="354" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="354" branch="false" />
+          </lines>
+        </class>
+        <class name="Minesweeper.Cell" filename="/home/runner/work/KATA-Minesweeper/KATA-Minesweeper/src/Minesweeper/Cell.cs" line-rate="1" branch-rate="0.75" complexity="13">
+          <methods>
+            <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="12" branch="false" />
+                <line number="12" hits="12" branch="false" />
+                <line number="13" hits="12" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(System.Collections.Generic.IEnumerable`1&lt;Minesweeper.Cell&gt;)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines>
+                <line number="15" hits="155" branch="false" />
+                <line number="16" hits="155" branch="false" />
+                <line number="17" hits="155" branch="false" />
+                <line number="18" hits="155" branch="false" />
+                <line number="19" hits="155" branch="false" />
+              </lines>
+            </method>
+            <method name="SetBomb" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="27" hits="24" branch="false" />
+                <line number="28" hits="24" branch="false" />
+                <line number="30" hits="141" branch="false" />
+                <line number="31" hits="24" branch="false" />
+              </lines>
+            </method>
+            <method name="RightClick" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="33" hits="1" branch="false" />
+              </lines>
+            </method>
+            <method name="Click" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="35" hits="22" branch="false" />
+              </lines>
+            </method>
+            <method name="ToString" signature="()" line-rate="1" branch-rate="0.75" complexity="5">
+              <lines>
+                <line number="37" hits="23" branch="true" condition-coverage="83% (5/6)" />
+                <line number="38" hits="23" branch="false" />
+                <line number="39" hits="24" branch="false" />
+                <line number="40" hits="32" branch="false" />
+                <line number="41" hits="36" branch="true" condition-coverage="50% (1/2)" />
+                <line number="42" hits="23" branch="false" />
+              </lines>
+            </method>
+            <method name="ClickNearCells" signature="()" line-rate="1" branch-rate="1" complexity="3">
+              <lines>
+                <line number="45" hits="11" branch="false" />
+                <line number="46" hits="17" branch="false" />
+                <line number="48" hits="24" branch="false" />
+                <line number="49" hits="11" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="11" hits="12" branch="false" />
+            <line number="12" hits="12" branch="false" />
+            <line number="13" hits="12" branch="false" />
+            <line number="15" hits="155" branch="false" />
+            <line number="16" hits="155" branch="false" />
+            <line number="17" hits="155" branch="false" />
+            <line number="18" hits="155" branch="false" />
+            <line number="19" hits="155" branch="false" />
+            <line number="27" hits="24" branch="false" />
+            <line number="28" hits="24" branch="false" />
+            <line number="30" hits="141" branch="false" />
+            <line number="31" hits="24" branch="false" />
+            <line number="33" hits="1" branch="false" />
+            <line number="35" hits="22" branch="false" />
+            <line number="37" hits="23" branch="true" condition-coverage="83% (5/6)" />
+            <line number="38" hits="23" branch="false" />
+            <line number="39" hits="24" branch="false" />
+            <line number="40" hits="32" branch="false" />
+            <line number="41" hits="36" branch="true" condition-coverage="50% (1/2)" />
+            <line number="42" hits="23" branch="false" />
+            <line number="45" hits="11" branch="false" />
+            <line number="46" hits="17" branch="false" />
+            <line number="48" hits="24" branch="false" />
+            <line number="49" hits="11" branch="false" />
+          </lines>
+        </class>
+        <class name="Minesweeper.Covered" filename="/home/runner/work/KATA-Minesweeper/KATA-Minesweeper/src/Minesweeper/Covered.cs" line-rate="1" branch-rate="1" complexity="3">
+          <methods>
+            <method name=".ctor" signature="(Minesweeper.Cell)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines>
+                <line number="5" hits="159" branch="false" />
+                <line number="6" hits="159" branch="false" />
+                <line number="7" hits="159" branch="false" />
+              </lines>
+            </method>
+            <method name="Click" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="11" branch="false" />
+                <line number="11" hits="11" branch="false" />
+                <line number="12" hits="11" branch="false" />
+                <line number="13" hits="11" branch="false" />
+              </lines>
+            </method>
+            <method name="RightClick" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="2" branch="false" />
+              </lines>
+            </method>
+            <method name="ToString" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="16" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="159" branch="false" />
+            <line number="6" hits="159" branch="false" />
+            <line number="7" hits="159" branch="false" />
+            <line number="10" hits="11" branch="false" />
+            <line number="11" hits="11" branch="false" />
+            <line number="12" hits="11" branch="false" />
+            <line number="13" hits="11" branch="false" />
+            <line number="15" hits="2" branch="false" />
+            <line number="17" hits="16" branch="false" />
+          </lines>
+        </class>
+        <class name="Minesweeper.Flaged" filename="/home/runner/work/KATA-Minesweeper/KATA-Minesweeper/src/Minesweeper/Flaged.cs" line-rate="1" branch-rate="1" complexity="3">
+          <methods>
+            <method name=".ctor" signature="(Minesweeper.Cell)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines>
+                <line number="11" hits="5" branch="false" />
+                <line number="12" hits="5" branch="false" />
+                <line number="13" hits="5" branch="false" />
+              </lines>
+            </method>
+            <method name="Click" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="1" branch="false" />
+              </lines>
+            </method>
+            <method name="RightClick" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="1" branch="false" />
+              </lines>
+            </method>
+            <method name="ToString" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="5" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="11" hits="5" branch="false" />
+            <line number="12" hits="5" branch="false" />
+            <line number="13" hits="5" branch="false" />
+            <line number="15" hits="1" branch="false" />
+            <line number="16" hits="1" branch="false" />
+            <line number="17" hits="5" branch="false" />
+          </lines>
+        </class>
+        <class name="Minesweeper.MineField" filename="/home/runner/work/KATA-Minesweeper/KATA-Minesweeper/src/Minesweeper/MineField.cs" line-rate="1" branch-rate="0.8571428571428571" complexity="15">
+          <methods>
+            <method name=".ctor" signature="(System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines>
+                <line number="10" hits="7" branch="false" />
+                <line number="11" hits="7" branch="false" />
+                <line number="12" hits="7" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(System.Int32,System.Int32,System.Collections.Generic.IEnumerable`1&lt;System.Int32&gt;)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines>
+                <line number="14" hits="10" branch="false" />
+                <line number="15" hits="10" branch="false" />
+                <line number="16" hits="10" branch="false" />
+                <line number="17" hits="10" branch="false" />
+                <line number="19" hits="10" branch="false" />
+                <line number="20" hits="190" branch="false" />
+                <line number="21" hits="153" branch="false" />
+                <line number="22" hits="153" branch="false" />
+                <line number="24" hits="10" branch="false" />
+                <line number="25" hits="56" branch="false" />
+                <line number="26" hits="10" branch="false" />
+              </lines>
+            </method>
+            <method name="GetNearCells" signature="(System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines>
+                <line number="33" hits="144" branch="false" />
+                <line number="34" hits="144" branch="true" condition-coverage="100% (2/2)" />
+                <line number="35" hits="376" branch="false" />
+                <line number="36" hits="376" branch="false" />
+                <line number="37" hits="283" branch="false" />
+                <line number="38" hits="144" branch="false" />
+              </lines>
+            </method>
+            <method name="Click" signature="(System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines>
+                <line number="40" hits="1" branch="false" />
+              </lines>
+            </method>
+            <method name="ToString" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="42" hits="1" branch="false" />
+              </lines>
+            </method>
+            <method name="ToIndex" signature="(System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines>
+                <line number="62" hits="283" branch="false" />
+              </lines>
+            </method>
+            <method name="GetCell" signature="(System.ValueTuple`2&lt;System.Int32,System.Int32&gt;)" line-rate="1" branch-rate="0.8333333333333334" complexity="NaN">
+              <lines>
+                <line number="64" hits="232" branch="true" condition-coverage="50% (1/2)" />
+                <line number="65" hits="232" branch="false" />
+                <line number="66" hits="488" branch="true" condition-coverage="100% (2/2)" />
+                <line number="67" hits="464" branch="true" condition-coverage="100% (2/2)" />
+                <line number="68" hits="440" branch="true" condition-coverage="100% (2/2)" />
+                <line number="69" hits="413" branch="true" condition-coverage="100% (2/2)" />
+                <line number="70" hits="371" branch="true" condition-coverage="50% (1/2)" />
+                <line number="71" hits="232" branch="false" />
+              </lines>
+            </method>
+            <method name="IndexGenerator" signature="()" line-rate="1" branch-rate="1" complexity="3">
+              <lines>
+                <line number="45" hits="5" branch="false" />
+                <line number="46" hits="19" branch="false" />
+                <line number="47" hits="19" branch="false" />
+              </lines>
+            </method>
+            <method name="NearIndexGenerator" signature="()" line-rate="1" branch-rate="1" complexity="11">
+              <lines>
+                <line number="51" hits="29" branch="false" />
+                <line number="52" hits="29" branch="false" />
+                <line number="53" hits="29" branch="false" />
+                <line number="54" hits="29" branch="false" />
+                <line number="55" hits="29" branch="false" />
+                <line number="56" hits="29" branch="false" />
+                <line number="57" hits="29" branch="false" />
+                <line number="58" hits="29" branch="false" />
+                <line number="59" hits="29" branch="false" />
+                <line number="60" hits="29" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="10" hits="7" branch="false" />
+            <line number="11" hits="7" branch="false" />
+            <line number="12" hits="7" branch="false" />
+            <line number="14" hits="10" branch="false" />
+            <line number="15" hits="10" branch="false" />
+            <line number="16" hits="10" branch="false" />
+            <line number="17" hits="10" branch="false" />
+            <line number="19" hits="10" branch="false" />
+            <line number="20" hits="190" branch="false" />
+            <line number="21" hits="153" branch="false" />
+            <line number="22" hits="153" branch="false" />
+            <line number="24" hits="10" branch="false" />
+            <line number="25" hits="56" branch="false" />
+            <line number="26" hits="10" branch="false" />
+            <line number="33" hits="144" branch="false" />
+            <line number="34" hits="144" branch="true" condition-coverage="100% (2/2)" />
+            <line number="35" hits="376" branch="false" />
+            <line number="36" hits="376" branch="false" />
+            <line number="37" hits="283" branch="false" />
+            <line number="38" hits="144" branch="false" />
+            <line number="40" hits="1" branch="false" />
+            <line number="42" hits="1" branch="false" />
+            <line number="45" hits="5" branch="false" />
+            <line number="46" hits="19" branch="false" />
+            <line number="47" hits="19" branch="false" />
+            <line number="51" hits="29" branch="false" />
+            <line number="52" hits="29" branch="false" />
+            <line number="53" hits="29" branch="false" />
+            <line number="54" hits="29" branch="false" />
+            <line number="55" hits="29" branch="false" />
+            <line number="56" hits="29" branch="false" />
+            <line number="57" hits="29" branch="false" />
+            <line number="58" hits="29" branch="false" />
+            <line number="59" hits="29" branch="false" />
+            <line number="60" hits="29" branch="false" />
+            <line number="62" hits="283" branch="false" />
+            <line number="64" hits="232" branch="true" condition-coverage="50% (1/2)" />
+            <line number="65" hits="232" branch="false" />
+            <line number="66" hits="488" branch="true" condition-coverage="100% (2/2)" />
+            <line number="67" hits="464" branch="true" condition-coverage="100% (2/2)" />
+            <line number="68" hits="440" branch="true" condition-coverage="100% (2/2)" />
+            <line number="69" hits="413" branch="true" condition-coverage="100% (2/2)" />
+            <line number="70" hits="371" branch="true" condition-coverage="50% (1/2)" />
+            <line number="71" hits="232" branch="false" />
+          </lines>
+        </class>
+        <class name="Minesweeper.Uncovered" filename="/home/runner/work/KATA-Minesweeper/KATA-Minesweeper/src/Minesweeper/Uncovered.cs" line-rate="1" branch-rate="1" complexity="3">
+          <methods>
+            <method name=".ctor" signature="(Minesweeper.Cell)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines>
+                <line number="5" hits="13" branch="false" />
+                <line number="6" hits="13" branch="false" />
+                <line number="7" hits="13" branch="false" />
+              </lines>
+            </method>
+            <method name="Click" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="13" branch="false" />
+              </lines>
+            </method>
+            <method name="RightClick" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="1" branch="false" />
+              </lines>
+            </method>
+            <method name="ToString" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="12" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="13" branch="false" />
+            <line number="6" hits="13" branch="false" />
+            <line number="7" hits="13" branch="false" />
+            <line number="9" hits="13" branch="false" />
+            <line number="11" hits="1" branch="false" />
+            <line number="13" hits="12" branch="false" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>
